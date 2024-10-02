@@ -11,6 +11,13 @@ export default {
       selectAll: false
     };
   },
+  methods: {
+    selectAllItems() {
+      this.items.forEach(item => {
+        item.selected = this.selectAll;
+      });
+    }
+  }
 };
 </script>
 
@@ -18,7 +25,7 @@ export default {
   <table>
     <thead>
     <tr>
-      <th><input type="checkbox"/> Account </th>
+      <th><input type="checkbox" v-model="selectAll" @change="selectAllItems"/> Account </th>
       <th>ID</th>
       <th>Name</th>
       <th>City</th>
@@ -26,12 +33,12 @@ export default {
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td><input class="check" type="checkbox"/> </td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+    <tr v-for="(item, index) in items" :key="index">
+      <td><input class="check" type="checkbox" v-model="item.selected"/> {{item.username}} </td>
+      <td>{{item.id}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.address.city}}</td>
+      <td>{{item.email}}</td>
     </tr>
     </tbody>
   </table>
