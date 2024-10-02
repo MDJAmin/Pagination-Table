@@ -1,11 +1,14 @@
 <template>
-
+<div>
+  <TableView/>
+</div>
 
 </template>
 
 <script>
-
+import TableView from "@/view/TableView.vue";
 export default {
+  components:{TableView},
   data() {
     return {
       items: [
