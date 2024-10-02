@@ -1,8 +1,7 @@
 <template>
 <div>
-  <TableView/>
+  <TableView :items="items"/>
 </div>
-
 </template>
 
 <script>
