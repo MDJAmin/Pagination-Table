@@ -32,7 +32,7 @@ export default {
 <template>
   <div class="pagination">
     <button @click="prevPage" :disabled="currentPage === 1"> < </button>
-    <span></span>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
     <button @click="nextPage" :disabled="currentPage === totalPages"> > </button>
   </div>
 </template>
