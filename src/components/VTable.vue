@@ -45,9 +45,13 @@ export default {
 </template>
 
 <style scoped>
+thead tr th{
+  background-color: black;
+}
 table {
   border-collapse: collapse;
   width: 100%;
+
 }
 th, td {
   border: 1px solid #ddd;
