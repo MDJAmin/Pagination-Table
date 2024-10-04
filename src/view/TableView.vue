@@ -19,7 +19,7 @@ export default {
     },
     itemsPerPage: {
       type: Number,
-      default: 2
+      default: 10
     }
   },
   data() {

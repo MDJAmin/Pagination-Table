@@ -11,7 +11,7 @@ export default {
     },
     itemsPerPage: {
       type: Number,
-      default: 2,
+      default: 10,
     },
   },
   computed: {
@@ -106,10 +106,12 @@ export default {
   border: solid #ffffff;
   transition: all 0.5s;
   border-radius: 20px;
+  border: 3px solid white;
 }
 .pag_num:hover{
-  background-color: black;
-  color: white;
+  background-color: rgb(255, 255, 255);
+border: 3px solid #ae4a4a;
+color: #ae4a4a;
 }
 button {
   margin: 0 5px;
