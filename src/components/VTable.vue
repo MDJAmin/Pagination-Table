@@ -46,7 +46,7 @@ export default {
 
 <style scoped>
 thead tr th{
-  background-color: black;
+  background-color: #ae4a4a85;
 }
 table {
   border-collapse: collapse;
