@@ -106,6 +106,7 @@ export default {
   border: solid #ffffff;
   transition: all 0.5s;
   border-radius: 20px;
+  margin-top: 15px;
   border: 3px solid white;
 }
 .pag_num:hover{
