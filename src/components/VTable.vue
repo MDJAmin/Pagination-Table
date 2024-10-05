@@ -1,26 +1,31 @@
-<script >
+<script>
+import { ref, watch } from "vue";
+
 export default {
   props: {
     items: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
-  data() {
+  setup(props) {
+    const selectAll = ref(false);
+
+    const selectAllItems = () => {
+      props.items.forEach(item => {
+        item.selected = selectAll.value;
+      });
+    };
+
+    watch(selectAll, selectAllItems);
+
     return {
-      selectAll: false
+      selectAll,
+      selectAllItems,
     };
   },
-  methods: {
-    selectAllItems() {
-      this.items.forEach(item => {
-        item.selected = this.selectAll;
-      });
-    }
-  }
 };
 </script>
-
 <template>
   <table>
     <thead>
