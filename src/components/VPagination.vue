@@ -1,5 +1,5 @@
 <script>
-import { computed } from "vue";
+import {computed} from "vue";
 
 export default {
   props: {
@@ -13,10 +13,10 @@ export default {
     },
     itemsPerPage: {
       type: Number,
-      default: 10,
+      default: 2,
     },
   },
-  setup(props, { emit }) {
+  setup(props, {emit}) {
     const pages = computed(() => {
       const range = [];
       for (let i = 1; i <= props.totalPages; i++) {
@@ -25,8 +25,10 @@ export default {
       return range;
     });
 
+    // booleans
     const isInFirstPage = computed(() => props.currentPage === 1);
     const isInLastPage = computed(() => props.currentPage === props.totalPages);
+
 
     const prevPage = () => {
       if (props.currentPage > 1) {
@@ -36,7 +38,7 @@ export default {
 
     const nextPage = () => {
       if (props.currentPage < props.totalPages) {
-        emit("update:currentPage", props.currentPage + 1);
+        emit("update:currentPage", props.currentPage + 1)
       }
     };
 
@@ -63,9 +65,9 @@ export default {
     </button>
     <span v-for="page in pages" :key="page">
       <button
-        class="pag_num"
-        :class="{ active: currentPage === page }"
-        @click="onPageClick(page)"
+          class="pag_num"
+          :class="{ active: currentPage === page }"
+          @click="onPageClick(page)"
       >
         {{ page }}
       </button>
@@ -90,7 +92,7 @@ export default {
 }
 
 .prv,
-.nxt{
+.nxt {
   margin: 0 20px;
 }
 
@@ -99,12 +101,14 @@ export default {
   color: #ae4a4a;
   border: 3px solid transparent;
 }
+
 .pagination {
   margin-top: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .pag_num {
   margin: 0 5px;
   font-size: 1.1em;
@@ -118,11 +122,13 @@ export default {
   margin-top: 15px;
   border: 3px solid white;
 }
-.pag_num:hover{
+
+.pag_num:hover {
   background-color: rgb(255, 255, 255);
-border: 3px solid #ae4a4a;
-color: #ae4a4a;
+  border: 3px solid #ae4a4a;
+  color: #ae4a4a;
 }
+
 button {
   margin: 0 5px;
 }

@@ -8,21 +8,23 @@
 import TableView from "@/view/TableView.vue";
 
 export default {
-  components: { TableView },
+  // registering
+  components: {TableView},
   data() {
     return {
       items: []
     };
   },
+  // lifecycle hooks
   mounted() {
     fetch('https://jsonplaceholder.typicode.com/users')
-      .then(response => response.json())
-      .then(data => {
-        this.items = data;
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          this.items = data;
+        })
+        .catch(error => {
+          console.error(error);
+        });
   }
 };
 </script>

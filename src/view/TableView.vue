@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VTable :items="paginatedItems" />
+    <VTable :items="paginatedItems"/>
     <VPagination
         :totalPages="totalPages"
         :currentPage="currentPage"
@@ -24,18 +24,21 @@ export default {
     },
     itemsPerPage: {
       type: Number,
-      default: 2
+      default: 2,
     }
   },
   setup(props) {
     const currentPage = ref(1);
 
-    const totalPages = computed(() => Math.ceil(props.items.length / props.itemsPerPage));
-
+    const totalPages = computed(() =>
+        Math.ceil(props.items.length / props.itemsPerPage));
+    // round up to the nearest integer
     const paginatedItems = computed(() => {
+      // returns a slice of the items
       const start = (currentPage.value - 1) * props.itemsPerPage;
       const end = start + props.itemsPerPage;
       return props.items.slice(start, end);
+      // defined exclusive and inclusive
     });
     const updateCurrentPage = (newPage) => {
       currentPage.value = newPage;

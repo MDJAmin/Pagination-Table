@@ -1,5 +1,5 @@
 <script>
-import { ref, watch } from "vue";
+import {ref, watch} from "vue";
 
 export default {
   props: {
@@ -30,7 +30,7 @@ export default {
   <table>
     <thead>
     <tr>
-      <th><input type="checkbox" v-model="selectAll" @change="selectAllItems"/> Account </th>
+      <th><input type="checkbox" v-model="selectAll" @change="selectAllItems"/> Account</th>
       <th>ID</th>
       <th>Name</th>
       <th>City</th>
@@ -39,25 +39,28 @@ export default {
     </thead>
     <tbody>
     <tr v-for="(item, index) in items" :key="index">
-      <td><input class="check" type="checkbox" v-model="item.selected"/> {{item.username}} </td>
-      <td>{{item.id}}</td>
-      <td>{{item.name}}</td>
-      <td>{{item.address.city}}</td>
-      <td>{{item.email}}</td>
+      <td><input class="check" type="checkbox" v-model="item.selected"/> {{ item.username }}</td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.address.city }}</td>
+      <td>{{ item.email }}</td>
     </tr>
     </tbody>
   </table>
 </template>
 
+<!--collapse = make iy cleaner-->
+
 <style scoped>
-thead tr th{
+thead tr th {
   background-color: #ae4a4a85;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
-
 }
+
 th, td {
   border: 1px solid #ddd;
   padding: 10px;
