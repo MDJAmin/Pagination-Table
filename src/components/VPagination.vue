@@ -1,4 +1,6 @@
 <script>
+import { computed } from "vue";
+
 export default {
   props: {
     currentPage: {
@@ -14,35 +16,42 @@ export default {
       default: 10,
     },
   },
-  computed: {
-    pages() {
+  setup(props, { emit }) {
+    const pages = computed(() => {
       const range = [];
-      for (let i = 1; i <= this.totalPages; i++) {
+      for (let i = 1; i <= props.totalPages; i++) {
         range.push(i);
       }
       return range;
-    },
-    isInFirstPage() {
-      return this.currentPage === 1;
-    },
-    isInLastPage() {
-      return this.currentPage === this.totalPages;
-    },
-  },
-  methods: {
-    prevPage() {
-      if (this.currentPage > 1) {
-        this.$emit("update:currentPage", this.currentPage - 1);
+    });
+
+    const isInFirstPage = computed(() => props.currentPage === 1);
+    const isInLastPage = computed(() => props.currentPage === props.totalPages);
+
+    const prevPage = () => {
+      if (props.currentPage > 1) {
+        emit("update:currentPage", props.currentPage - 1);
       }
-    },
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.$emit("update:currentPage", this.currentPage + 1);
+    };
+
+    const nextPage = () => {
+      if (props.currentPage < props.totalPages) {
+        emit("update:currentPage", props.currentPage + 1);
       }
-    },
-    onPageClick(page) {
-      this.$emit("update:currentPage", page);
-    },
+    };
+
+    const onPageClick = (page) => {
+      emit("update:currentPage", page);
+    };
+
+    return {
+      pages,
+      isInFirstPage,
+      isInLastPage,
+      prevPage,
+      nextPage,
+      onPageClick,
+    };
   },
 };
 </script>
