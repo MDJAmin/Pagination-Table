@@ -83,7 +83,7 @@ export default {
 .prv_nxt {
   border: 3px solid #ffffff;
   font-size: 1em;
-  background-color: #ae4a4a;
+  background-color: #c52766ff;
   color: white;
   padding: 2px 10px;
   border-radius: 50%;
@@ -98,7 +98,7 @@ export default {
 
 .prv_nxt:hover {
   background-color: white;
-  color: #ae4a4a;
+  color: #c52766ff;
   border: 3px solid transparent;
 }
 
@@ -112,21 +112,21 @@ export default {
 .pag_num {
   margin: 0 5px;
   font-size: 1.1em;
-  background-color: #ae4a4a;
-  background: #ae4a4a;
+  color: white;
+  background-color: #c52766ff;
+  background: #c52766ff;
   padding: 0 10px;
   cursor: pointer;
-  border: solid #ffffff;
+  border: 2px solid #ffffff;
   transition: all 0.5s;
   border-radius: 20px;
-  margin-top: 15px;
+  margin-top: 0px;
   border: 3px solid white;
 }
 
 .pag_num:hover {
   background-color: rgb(255, 255, 255);
-  border: 3px solid #ae4a4a;
-  color: #ae4a4a;
+  color: #c52766ff;
 }
 
 button {

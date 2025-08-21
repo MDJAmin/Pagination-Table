@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 thead tr th {
-  background-color: #ae4a4a85;
+  background-color: #c52766ff;
 }
 
 table {
@@ -68,6 +68,6 @@ th, td {
 }
 
 th {
-  background-color: #f0f0f0;
+  background-color: #ddd;
 }
 </style>
